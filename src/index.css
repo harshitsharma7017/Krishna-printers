@@ -1,42 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Wedding Card Retail Shop Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors - Wedding Elegance */
+    --background: 38 35% 98%;        /* Soft ivory */
+    --foreground: 30 8% 20%;         /* Warm charcoal */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;               /* Pure white for cards */
+    --card-foreground: 30 8% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 30 8% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 340 15% 75%;          /* Soft dusty rose */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 340 25% 95%;        /* Very light pink */
+    --secondary-foreground: 340 30% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 45 20% 96%;             /* Warm off-white */
+    --muted-foreground: 30 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 65% 75%;            /* Warm gold */
+    --accent-foreground: 30 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 340 15% 90%;           /* Soft pink-gray border */
+    --input: 340 15% 92%;
+    --ring: 340 15% 75%;
 
-    --radius: 0.5rem;
+    /* Wedding-specific colors */
+    --wedding-gold: 45 65% 75%;      /* Elegant gold accent */
+    --wedding-ivory: 38 35% 98%;     /* Main background */
+    --wedding-rose: 340 15% 75%;     /* Primary rose */
+    --wedding-blush: 340 25% 95%;    /* Light blush */
+    --wedding-sage: 120 15% 85%;     /* Soft sage green */
+
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(var(--wedding-blush)), hsl(var(--wedding-ivory)));
+    --gradient-elegant: linear-gradient(45deg, hsl(var(--wedding-ivory)), hsl(var(--wedding-gold) / 0.1));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--wedding-blush)), hsl(var(--wedding-ivory)), hsl(var(--wedding-gold) / 0.05));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--wedding-rose) / 0.08);
+    --shadow-elegant: 0 8px 30px hsl(var(--wedding-rose) / 0.12);
+    --shadow-card: 0 2px 15px hsl(var(--wedding-rose) / 0.06);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Animations */
+    --transition-elegant: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.3s ease-out;
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +126,57 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Wedding-specific component styles */
+  .wedding-card {
+    @apply bg-card rounded-xl shadow-[var(--shadow-card)] border border-border/50 
+           transition-[var(--transition-elegant)] hover:shadow-[var(--shadow-elegant)] 
+           hover:-translate-y-1;
+  }
+
+  .wedding-button {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 
+           shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elegant)]
+           transition-[var(--transition-elegant)] font-medium;
+  }
+
+  .wedding-gradient {
+    background: var(--gradient-romantic);
+  }
+
+  .wedding-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .wedding-elegant-gradient {
+    background: var(--gradient-elegant);
+  }
+
+  .text-wedding-gold {
+    color: hsl(var(--wedding-gold));
+  }
+
+  .text-wedding-rose {
+    color: hsl(var(--wedding-rose));
+  }
+
+  .bg-wedding-blush {
+    background-color: hsl(var(--wedding-blush));
+  }
+
+  .bg-wedding-ivory {
+    background-color: hsl(var(--wedding-ivory));
+  }
+
+  .border-wedding-rose {
+    border-color: hsl(var(--wedding-rose) / 0.3);
   }
 }
