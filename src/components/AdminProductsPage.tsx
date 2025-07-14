@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { Card } from "@/components/ui/card";
 import { Trash, Pencil, Plus, X } from "lucide-react";
+import API_BASE_URL from "../config";
 
 interface Product {
   _id?: string;
@@ -141,7 +142,7 @@ export default function AdminProductsPage() {
     });
 
     try {
-      const res = await fetch("http://localhost:5000/api/upload", {
+      const res = await fetch(`${API_BASE_URL}/upload`, {
         method: "POST",
         body: formData,
       });
