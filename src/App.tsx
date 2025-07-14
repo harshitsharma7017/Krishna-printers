@@ -10,6 +10,8 @@ import Customization from "./pages/Customization";
 import HowItWorks from "./pages/HowItWorks";
 import Testimonials from "./pages/Testimonials";
 import NotFound from "./pages/NotFound";
+import AdminPage from "./pages/Admin";
+import WeddingCard from "./pages/WeddingCard";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/customization" element={<Customization />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/admin/products" element={<AdminPage />} />
+          <Route path="/wedding-cards" element={<WeddingCard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

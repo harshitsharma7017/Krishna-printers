@@ -38,7 +38,10 @@ export const Header = () => {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link to="/" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                <Link
+                  to="/wedding-cards"
+                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                >
                   Wedding Cards
                 </Link>
               </NavigationMenuLink>
@@ -66,7 +69,10 @@ export const Header = () => {
 
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link to="/about" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                <Link
+                  to="/about"
+                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                >
                   About
                 </Link>
               </NavigationMenuLink>
@@ -74,8 +80,23 @@ export const Header = () => {
 
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link to="/contact" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                <Link
+                  to="/contact"
+                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                >
                   Contact
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            {/* ✅ Admin Link */}
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link
+                  to="/admin/products"
+                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                >
+                  Admin
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -98,7 +119,7 @@ export const Header = () => {
               >
                 Wedding Cards
               </Link>
-              
+
               <div className="space-y-2">
                 <div className="text-lg font-medium text-muted-foreground">Other Cards</div>
                 <div className="ml-4 space-y-2">
@@ -129,6 +150,15 @@ export const Header = () => {
                 className="text-lg font-medium hover:text-primary transition-colors"
               >
                 Contact
+              </Link>
+
+              {/* ✅ Admin Link (Mobile) */}
+              <Link
+                to="/admin/products"
+                onClick={() => setIsOpen(false)}
+                className="text-lg font-medium hover:text-primary transition-colors"
+              >
+                Admin
               </Link>
             </nav>
           </SheetContent>
