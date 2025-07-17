@@ -1,13 +1,12 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ],
-  "cron": {
-    "jobs": [
-      {
-        "path": "/api/ping-backend",
-        "schedule": "*/10 * * * *"
-      }
-    ]
-  }
+  "crons": [
+    {
+      "path": "/api/ping-backend",
+      "schedule": "*/10 * * * *"
+    }
+  ]
 }
